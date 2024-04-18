@@ -10,6 +10,10 @@ cd fast-and-hoxy
 poetry install
 ```
 
+## Config
+
+`config.py` 파일을 수정합니다.
+
 ## Usage
 
 ```sh
