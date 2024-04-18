@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "fast-and-hoxy"
+version = "0.0.1"
+description = ""
+authors = ["Juunini <juuni.ni.i@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+packages = [
+    { include = "src", from = "." }
+]
+
+[tool.poetry.scripts]
+azure = "src.app:azure_openai"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+langchain = "^0.1.14"
+langchain-openai = "^0.1.1"
+openai = "^1.16.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
