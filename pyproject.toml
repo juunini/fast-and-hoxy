@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "fast-and-hoxy"
-version = "0.0.1"
+version = "0.0.2"
 description = ""
 authors = ["Juunini <juuni.ni.i@gmail.com>"]
 license = "MIT"
@@ -11,13 +11,15 @@ packages = [
 ]
 
 [tool.poetry.scripts]
-azure = "src.app:azure_openai"
+azure = "src.app:chatgpt"
+gemini = "src.app:gemini"
 
 [tool.poetry.dependencies]
 python = "^3.11"
 langchain = "^0.1.14"
 langchain-openai = "^0.1.1"
 openai = "^1.16.2"
+langchain-google-vertexai = "^1.0.1"
 
 
 [build-system]

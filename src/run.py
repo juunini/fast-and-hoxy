@@ -1,14 +1,9 @@
-from langchain_openai import AzureChatOpenAI
+from langchain_core.language_models.chat_models import BaseChatModel
 
-import config
 from src.prompts import create_apology_letter_prompt, create_cot_prompt
 
 
-def run(blame: str, hoxy: str) -> str:
-    model = AzureChatOpenAI(
-        azure_deployment=config.AZURE_OPENAI_DEPLOYMENT_NAME,
-    )
-
+def run(model: BaseChatModel, blame: str, hoxy: str) -> str:
     apology_letter_prompt = create_apology_letter_prompt(blame, hoxy)
 
     print("\033[0;32m1차 프롬프트\033[0m:")

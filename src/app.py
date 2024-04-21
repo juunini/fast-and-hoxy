@@ -1,5 +1,8 @@
-from src.azure_openai import run
 import argparse
+from langchain_core.language_models.chat_models import BaseChatModel
+
+from src.models import azure_openai, google_vertexai
+from src.run import run
 
 
 def parse_arguments() -> list[str]:
@@ -18,10 +21,18 @@ def parse_arguments() -> list[str]:
     return [args.blame, args.hoxy]
 
 
-def azure_openai():
+def chatgpt():
+    answer(azure_openai())
+
+
+def gemini():
+    answer(google_vertexai())
+
+
+def answer(model: BaseChatModel):
     [blame, hoxy] = parse_arguments()
 
-    ai_answer = run(blame, hoxy)
+    ai_answer = run(model, blame, hoxy)
 
     print("\033[0;32m최종 답변\033[0m:")
     print(ai_answer)
